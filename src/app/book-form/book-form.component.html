@@ -1,1 +1,16 @@
-<p>book-form works!</p>
+<div>
+  <h3>Book Form </h3>
+  <form [formGroup]="bookFormGroup" class="book-form" (ngSubmit)="onSubmitBook()">
+    <input
+      formControlName="title"
+      type="text"><br>
+    <div *ngIf="shouldShowTitleRequiredError()">Title is required.</div>
+    <textarea formControlName="description"></textarea>
+    <button
+      [disabled]="!bookFormGroup.valid"
+      type="submit">SUBMIT
+    </button>
+
+  </form>
+</div>
+
